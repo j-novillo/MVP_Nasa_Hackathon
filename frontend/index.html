@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brasa · Calendario de actividad de quema</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/vendor/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <span class="mark" aria-hidden="true"></span>
+        <div>
+          <p class="eyebrow">NASA Space Apps · MODIS + VIIRS</p>
+          <h1>Brasa</h1>
+        </div>
+      </div>
+      <p class="lede">
+        Calendario de actividad de quema para un área elegida. La serie armonizada
+        agrega FRP en una rejilla mensual y cambia de sensor en 2012.
+      </p>
+    </header>
+
+    <p id="banner" class="banner" role="status"></p>
+
+    <main class="layout">
+      <section class="stage">
+        <div class="toolbar">
+          <div class="group" id="regions" role="group" aria-label="Regiones"></div>
+          <div class="group" id="usecases" role="group" aria-label="Casos de uso"></div>
+          <div class="group" id="sensors" role="group" aria-label="Capa de sensor">
+            <button type="button" data-sensor="harmonized">Armonizada</button>
+            <button type="button" data-sensor="modis">MODIS</button>
+            <button type="button" data-sensor="viirs">VIIRS</button>
+          </div>
+          <div class="group" id="metrics" role="group" aria-label="Métrica">
+            <button type="button" data-metric="frp">FRP</button>
+            <button type="button" data-metric="count">Conteo</button>
+          </div>
+          <div class="year-nav">
+            <button type="button" id="year-prev" aria-label="Año anterior">←</button>
+            <select id="year" aria-label="Año"></select>
+            <button type="button" id="year-next" aria-label="Año siguiente">→</button>
+          </div>
+          <div class="draw-nav">
+            <button type="button" id="draw">Dibujar área</button>
+            <button type="button" id="draw-finish" disabled>Cerrar polígono</button>
+            <button type="button" id="draw-cancel" disabled>Cancelar</button>
+          </div>
+        </div>
+        <p id="hint" class="hint"></p>
+        <div class="map-frame">
+          <div id="map" role="application" aria-label="Mapa de actividad de quema"></div>
+          <p id="map-empty" class="map-empty" hidden>Sin detecciones de esta capa en el mes elegido.</p>
+          <div class="map-legend" id="map-legend"></div>
+        </div>
+      </section>
+
+      <aside class="panel">
+        <section>
+          <p class="kicker" id="area-label">Área</p>
+          <h2 id="summary-title">Julio</h2>
+          <dl class="stats" id="stats"></dl>
+        </section>
+        <section>
+          <h3>Meses del año</h3>
+          <div id="months" class="months"></div>
+          <p id="critical-note" class="fine"></p>
+        </section>
+        <section>
+          <h3>Plataformas en la capa activa</h3>
+          <ul id="platforms" class="platforms"></ul>
+        </section>
+        <section>
+          <h3>Notas de la vista</h3>
+          <ul id="notes" class="notes"></ul>
+        </section>
+      </aside>
+
+      <section class="calendar-block">
+        <div class="block-head">
+          <h2>Calendario <span id="cal-year"></span></h2>
+          <p id="day-readout">Elige un día.</p>
+        </div>
+        <div id="calendar"></div>
+        <div class="scale" aria-hidden="true">
+          <span>sin FRP</span>
+          <i class="lv-0"></i><i class="lv-1"></i><i class="lv-2"></i><i class="lv-3"></i><i class="lv-4"></i>
+          <span>más FRP</span>
+        </div>
+      </section>
+
+      <section class="charts">
+        <p class="chart-key">
+          <span><i class="swatch modis"></i> MODIS</span>
+          <span><i class="swatch viirs"></i> VIIRS</span>
+          <span><i class="swatch harm"></i> Armonizada</span>
+          <span><i class="swatch crit"></i> Mes crítico</span>
+        </p>
+        <div>
+          <h2>Año seleccionado, por sensor</h2>
+          <div id="month-chart"></div>
+        </div>
+        <div>
+          <h2>Serie anual y corte de 2012</h2>
+          <div id="annual-chart"></div>
+        </div>
+      </section>
+    </main>
+
+    <details class="assumptions">
+      <summary>Qué está simplificado y por qué</summary>
+      <ul id="assumption-list"></ul>
+    </details>
+
+    <footer>
+      <p>
+        Brasa no calibra radiancias entre sensores. Desde 2012 la serie armonizada se queda con VIIRS;
+        MODIS sigue como capa. Los datos de fábrica son sintéticos hasta que cargues CSV de FIRMS.
+      </p>
+    </footer>
+
+    <script src="/vendor/leaflet/leaflet.js"></script>
+    <script type="module" src="/js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "product": "brasa",
+  "pipeline_version": 2,
+  "data_origin": "synthetic_demo",
+  "origin_note_es": "Datos de demostración sintéticos con el esquema CSV de NASA FIRMS. No son observaciones reales. Sirven para recorrer el calendario; copia CSV de archivo en data/raw y reconstruye antes de una demo con datos reales.",
+  "generated_at": "2026-10-14T17:47:12+00:00",
+  "grid_degrees": 0.25,
+  "transition_year": 2012,
+  "modis_low_confidence_below": 30,
+  "partial_years": [
+    2026
+  ],
+  "date_min": "2000-01-07",
+  "date_max": "2026-09-23",
+  "year_min": 2000,
+  "year_max": 2026,
+  "assumptions_es": [
+    "La serie armonizada usa MODIS antes de 2012 y VIIRS desde 2012, inclusive.",
+    "MODIS posterior a 2012 se conserva solo como capa comparativa, no se suma a VIIRS.",
+    "No hay calibración radiométrica ni un factor de conversión de FRP entre sensores.",
+    "No se deduplican detecciones cercanas: Terra, Aqua y los distintos VIIRS pueden contar el mismo fuego.",
+    "No se normaliza por órbitas ni por píxeles observados. Más satélites pueden inflar los conteos.",
+    "Se descartan las detecciones de confianza baja: MODIS por debajo de 30 y VIIRS etiquetado low.",
+    "La métrica es la suma de FRP en megavatios, no la energía integrada ni el área quemada.",
+    "La agregación de referencia es mensual en celdas de 0,25°. El calendario diario usa la misma regla de sensor.",
+    "Un mes crítico supera en 1,5 desviaciones típicas la media de ese mes en la misma era de sensor, sin el año consultado, y además concentra al menos un 25% del FRP del mes más alto de ese año.",
+    "No se corrige el ciclo diurno: Terra observa por la mañana y Aqua/VIIRS por la tarde."
+  ],
+  "inputs": [
+    {
+      "name": "modis_demo.csv",
+      "bytes": 486577,
+      "sha256": "ca531ce7d273c7029a5be03c31d4a192626debbcc2129aebbeb013ad8d972a74"
+    },
+    {
+      "name": "viirs_demo.csv",
+      "bytes": 403752,
+      "sha256": "40ddf6aea7cb502dcfb2bb3056b3f87e86e72634894a9904f27662bfa4184d29"
+    }
+  ],
+  "input_rows": 11396,
+  "kept": 9238,
+  "dropped_low_confidence": 2158,
+  "dropped_invalid": 0,
+  "files": [
+    {
+      "name": "modis_demo.csv",
+      "sensor_guess": "modis",
+      "input_rows": 6359,
+      "kept": 5248,
+      "dropped_low_confidence": 1111,
+      "dropped_invalid": 0
+    },
+    {
+      "name": "viirs_demo.csv",
+      "sensor_guess": "viirs",
+      "input_rows": 5037,
+      "kept": 3990,
+      "dropped_low_confidence": 1047,
+      "dropped_invalid": 0
+    }
+  ],
+  "by_sensor": {
+    "modis": 5248,
+    "viirs": 3990
+  }
+}
