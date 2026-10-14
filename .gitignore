@@ -22,3 +22,15 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+*.py[cod]
+.env
+
+# Local FIRMS downloads (the synthetic sample in data/samples is tracked)
+data/raw/*.csv
+data/raw/ORIGIN
