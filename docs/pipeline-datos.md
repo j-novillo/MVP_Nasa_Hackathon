@@ -105,4 +105,4 @@ La suma de FRP está en megavatios de detección, no en energía. No integramos 
 
 `GET /api/query` o `POST /api/query` devuelven un JSON con el área, el resumen del año y del mes, el calendario diario, los doce meses, la serie anual, las plataformas que observaron ese año y un `FeatureCollection` del mes. El navegador no recalcula la climatología. Solo elige, en local, si pinta `frp` o `count`, y reparte los días con FRP en cuatro cuantiles para el color del calendario.
 
-El mapa pide teselas a CARTO. Si no hay red, el calendario y las cifras siguen; el fondo del mapa no.
+El mapa pide teselas a OpenStreetMap. Si no hay red, el calendario y las cifras siguen; el fondo del mapa no.

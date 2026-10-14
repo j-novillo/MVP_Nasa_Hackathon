@@ -28,7 +28,7 @@ El MVP sigue la propuesta escrita. Donde esa propuesta dejaba una opción abiert
 
 13. **Hora local solo documentada.** Terra ~10:30, Aqua y VIIRS ~13:30. No hay corrección.
 
-14. **Leaflet vendido en el repo, teselas de CARTO por red.** El calendario funciona sin teselas. El dibujo es propio, sin el plugin Leaflet.draw.
+14. **Leaflet vendido en el repo, teselas de OpenStreetMap por red.** El estilo oscuro se hace con un filtro CSS. CARTO pedía clave y marcaba el mapa. El calendario funciona sin teselas. El dibujo es propio, sin el plugin Leaflet.draw.
 
 15. **2026 parcial hasta septiembre en el generador.** El año no se marca como crítico. Si entra un CSV real de 2026 completo, hay que quitar 2026 de `PARTIAL_YEARS` o la marca seguirá apagada.
 

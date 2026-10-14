@@ -203,6 +203,10 @@ h3 {
 
 .leaflet-container { background: #0e0c0a; font-family: var(--sans); }
 
+.leaflet-tile-pane {
+  filter: brightness(0.48) contrast(1.08) saturate(0.55);
+}
+
 .leaflet-control-zoom a {
   background: #1d1915;
   color: var(--text);

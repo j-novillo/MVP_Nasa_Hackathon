@@ -4,9 +4,10 @@ const HEAT = ["#3a241c", "#8a3b16", "#e85d04", "#ffb703", "#fff1d6"];
 
 export function createMap(element) {
   const map = L.map(element, { zoomControl: true, minZoom: 2 });
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-    attribution: "&copy; OpenStreetMap &copy; CARTO",
-    subdomains: "abcd",
+  // OSM standard tiles need no key. Carto's dark basemap now watermarks
+  // requests that do not carry an API key, which hid the geography.
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "&copy; OpenStreetMap",
     maxZoom: 18,
   }).addTo(map);
   L.control.scale({ imperial: false, metric: true }).addTo(map);

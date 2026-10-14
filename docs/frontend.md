@@ -18,7 +18,7 @@ Textos de la página en español. Los nombres de funciones y de campos JSON sigu
 
 ## Mapa
 
-El fondo es el estilo oscuro de CARTO. La escala es métrica. El área preparada se dibuja como rectángulo discontinuo; el polígono, como línea sobre los vértices clicados.
+El fondo son las teselas de OpenStreetMap, oscurecidas para que el naranja de las celdas se lea. No usan clave: el estilo oscuro de CARTO pide una y, sin ella, tapa el mapa con una marca de agua. La escala es métrica. El área preparada se dibuja como rectángulo discontinuo; el polígono, como línea sobre los vértices clicados.
 
 Las celdas usan cinco tonos, del marrón apagado al crema, según el logaritmo del FRP o del conteo dentro del mes que se está viendo. Un mes con poco fuego usa igual toda la rampa: el color dice contraste interno, no un umbral absoluto de megavatios.
 

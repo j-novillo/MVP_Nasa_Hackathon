@@ -78,4 +78,4 @@ Al importar la aplicación se llama a `load_processed()`. Si `meta.json` no exis
 
 ## Qué no entra en esta arquitectura
 
-No hay cola, ni caché, ni usuarios, ni teselas propias. El mapa base es CARTO oscuro sobre datos de OpenStreetMap y necesita red solo para las teselas. Los datos del calendario viajan desde el propio servidor.
+No hay cola, ni caché, ni usuarios, ni teselas propias. El mapa base son las teselas estándar de OpenStreetMap, oscurecidas con CSS, y necesitan red solo para esas imágenes. No llevan clave. Los datos del calendario viajan desde el propio servidor.
